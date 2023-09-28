@@ -1,0 +1,136 @@
+\documentclass{article}
+
+
+
+\include{defs}
+\include{includes}
+\input{commands.tex}
+\input{glossary}	% always input, since other macros may rely on it
+\title{Title}
+
+
+\author{ 
+  }
+\begin{document}
+% \nipsfinalcopy is no longer used
+%\input{icml2020_header.tex}
+\maketitle
+\input{glossary}	% always input, since other macros may rely on it
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength\abovecaptionskip{0.1cm}
+
+
+
+\begin{abstract}
+paper summary
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+We like \ac{MDP}s
+
+%%GB.4.24.23: This introduction should work on following the general guidelines for writing an introduction that lists the paragraph in order:
+% First, what is the problem, and why is it important? 
+% Second, why is that problem hard? Why hasn't it already been solved?
+% Third, What is a proposed methodological solution (high-level) to the method, and why is it a good proposed method?
+% Fourth, describe your proposed technical solution and how it implements the method described in paragraph three.
+% five, discuss your technical contributions.
+
+\section{Related Work}
+\label{sec:intro}
+
+Example citation
+\citep{mpo}
+
+\section{Background}
+\label{sec:background}
+
+In this section, we provide a very brief review of the fundamental background used by our method. \ac{RL} is formulated within the framework of a \ac{MDP} where at every time step $t$, the world (including the agent) exists in a state $ \bs_{t} 
+\in \states $, where the agent is able to perform actions $ \ba_{t} \in 
+\actions $. The action to take is determined according to a policy $ \pi(\ba_{a}|\bs_{t})$ which
+results in a new state $ \bs_{t+1} \in \states $  and reward $\reward_{t} = R(\bs_t, \ba_t)$ according to the transition 
+probability function $ P(\bs_{t+1} | \bs_{t}, \bs_{t}) $. 
+The policy is optimized to maximize the future discounted reward
+%
+% \begin{equation}
+% \label{eq:policy-gradient}
+% J(\policySymbol) =
+$
+  \expectation_{\reward_{0}, ..., \reward_T} \left[ \sum_{t=0}^{T} \gamma^t \reward_{t} \right]$,
+% \end{equation}
+\noindent where $ T $ is the max time horizon, and $ \discountFactor $ is the 
+discount factor.
+The formulation above generalizes to continuous states and actions, which is the situation for the agents we consider in our work.
+
+\section{Method Name}
+\label{sec:method} 
+
+Some text
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\vspace{-0.25cm}
+\begin{minipage}{.5\textwidth}
+\begin{algorithm}[H]
+\footnotesize 	
+\caption{\methodName}
+\label{alg:training}
+\begin{algorithmic}[1]
+\While{not converged}
+\State $\beta\gets \{\}$ \algorithmiccomment{Reset experience}
+\For{$\text{episode } = 0,\dots,M$}
+\State $\bs_0 \sim p(\bs_0); \tau_0 \gets  \{\bs_0\}$ \algorithmiccomment{Initialize state}
+\State $\bar{\bs}_0 \gets (\bs_0, \mathbf{0}, 0)$ \algorithmiccomment{Initialize aug. state}
+\ForEach{$t = 0,\dots,T$}
+\State $a_{t} \sim \pi_\phi(a_t| \bs_{t}, \theta_{t}, t)$\algorithmiccomment{Get  action}
+\State $\bs_{t+1} \sim T(\bs_{t+1} | \bs_{t}, a_{t})$  \algorithmiccomment{Step dynamics}
+\State $r_{t} \gets  \log p_{\theta_{t}}(\bs_{t+1})$ \algorithmiccomment{\methodName reward}
+\State $\tau_{t+1}\!\gets\!\tau_t\cup \{\bs_{t+1}\}$ \algorithmiccomment{Record state}
+\State $\theta_{t+1} \gets \upd(\tau_{t+1})$ \algorithmiccomment{Fit model}
+\State $\bar{\bs}_{t+1} \gets \{( \bs_{t+1}, \theta_{t+1}, t_{t+1})\}$
+\State $\beta \gets \beta \cup \{(\bar{\bs}_{t}, a_t, r_t, \bar{\bs}_{t+1})\}$
+\EndFor
+\EndForEach
+\State $\phi \gets \texttt{RL} (\phi, \beta)$ \algorithmiccomment{Update policy}
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
+% \end{minipage}
+\end{minipage}
+\vspace{-0.25cm}
+\end{wrapfigure}
+
+\section{Evaluation Environments}
+\label{sec:envs}
+
+\section{Experimental Results}
+\label{sec:results}
+
+\begin{figure*}[t!]
+% \vspace{0.5cm}
+\centering
+%trim=l b r t
+\subcaptionbox{\label{fig:humanoid2d-compare} humanoid2d walk}{ \includegraphics[trim={0.0cm 0.0cm 0.0cm 0.0cm},clip,width=0.31\linewidth]{images/todo.png}}
+\subcaptionbox{\label{fig:dog2d-compare}  dog2d}{ \includegraphics[trim={0.0cm 0.0cm 0.0cm 0.0cm},clip,width=0.31\linewidth]{images/todo.png}} 
+\subcaptionbox{\label{fig:raptor2d}  raptor2d}{ \includegraphics[trim={0.0cm 0.0cm 0.0cm 0.0cm},clip,width=0.31\linewidth]{images/todo.png}}
+\caption{
+Comparisons of \methodName, \ac{TCN} and \ac{GAIfO} with (a) the humanoid2d, (b) the 2D dog agent, and (c) the 2D raptor agent. \ac{GAIfO} struggles to show improvement on these tasks. \ac{TCN} does make progress on these imitation tasks but the performance is not as good as \methodName.
+The results show average performance over $4$ randomly seeded policy training simulations.
+%The dotted lines of the same colour are the specific performance values for each policy training run.
+}
+\label{fig:humanoid2d-rl-compare-old-cd}
+\vspace{-0.25cm}
+\end{figure*}
+
+
+\section{Discussion}
+\label{sec:discussion}
+
+
+\bibliographystyle{plainnat}
+\bibliography{references} 
+\clearpage
+\appendix
+
+\end{document}

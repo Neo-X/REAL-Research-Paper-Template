@@ -1,0 +1,75 @@
+\documentclass{article}
+
+% \usepackage{neurips_2020_author_response}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage[dvipsnames]{xcolor}
+
+
+\usepackage[export]{adjustbox} %adjustbox export is needed for one of the figures.
+% \usepackage[export]{adjustbox}% http://ctan.org/pkg/adjustbox
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{bbm}
+% \usepackage{booktabs}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lipsum}
+\usepackage{microtype}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{nicefrac}
+\usepackage{relsize}
+\usepackage{siunitx}
+\sisetup{round-mode = figures, round-precision = 3,scientific-notation = false}
+% \sisetup{fixdp,dp=3}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows, positioning, fit, backgrounds}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathmorphing}
+\tikzstyle{block} = [rectangle, draw, fill=blue!20,
+    text centered, rounded corners, minimum height=1em, node distance=1.5cm]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, rectangle,fill=red!20, node distance=1.5cm and 1cm,
+    minimum height=1em]
+\usepackage{verbatim}
+\usepackage{xspace}
+
+\include{defs}
+\input{commands.tex}
+
+% \usepackage{tikz}
+
+% internal tools
+\newcounter{statementcounter}
+\newcommand{\statementcount}{\stepcounter{statementcounter}\thestatementcounter}
+\newcommand{\ballnumber}[1]{\tikz[baseline=(myanchor.base)] \node[circle,fill=Blue,inner sep=1pt] (myanchor) {\color{-.}\bfseries\footnotesize #1};}% response commands
+\newcommand{\statement}[1]{\hspace{2mm}\ifnum0\thestatementcounter>8\ballnumber{\scriptsize{\statementcount}}\else\ballnumber{\statementcount}\fi~\textit{\color{NavyBlue}"#1"}:}
+
+\begin{document}
+We would like to thank the reviewers for their time and comments on the work.
+
+\textbf{R1, R4}: \statement{Empirical results, random seeds, baselines, SMiRL Bonus}
+We believe that our empirical evaluation of the 
+
+
+
+\textbf{R1, R2, R4}: \statement{A better connection from theory to the actual algorithm is needed.} Here, we provide additional details on the connections between Algorithms 1 and 2 to clarify confusion about their purposes. 
+
+\end{document}

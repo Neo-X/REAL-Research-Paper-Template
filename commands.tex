@@ -1,0 +1,51 @@
+%%%%% Annotation functions
+\newcommand{\todo}[1]{\textcolor{red}{Todo:#1}}
+% \newcommand{\todo}[1]{}
+\newcommand{\glen}[1]{\textcolor{blue}{Glen:#1}}
+\newcommand{\reviewercomment}[1]{\textcolor{orange}{ReviewComment:#1}}
+\newcommand{\todocite}[1]{\textcolor{red}{[Cite:??#1??]}}
+% \newcommand{\changes}[1]{{\color{blue}{#1}}}
+\newcommand{\changes}[1]{#1}
+\newcommand{\newchanges}[1]{\textcolor{red}{#1}}
+
+% % % % % Words for refernce types % % % %\math{L}
+\newcommand{\appendixx}[0]{supplementary document\xspace}
+\newcommand{\function}[1]{\ensuremath{\textit{#1}}}
+\newcommand{\procedure}[1]{\ensuremath{\textit{#1}}}
+\newcommand{\valueWithUnits}[2]{#1~\normalsize #2\normalsize}
+\newtheorem{theorem}{Theorem}[section]
+% \newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem-nonlabeled}{Theorem}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+%%%%% common math stuff %%%%%
+
+\newcommand{\normalDistribution}[2]{\mathcal{N}(#1,#2)}
+\newcommand{\expectation}{\mathbb{E}}
+\newcommand{\lossFunction}[1]{\mathcal{L}(#1)}
+\newcommand{\grad}[0]{\nabla}
+\newcommand{\given}{\:\vert\:}
+\newcommand{\placeholder}{\:\cdot\:}
+\DeclareMathOperator*{\argmin}{arg\,min \:}
+\DeclareMathOperator*{\argmax}{arg\,max \:}
+
+
+% % % % % Words for things % % % % %
+
+
+\newcommand{\videoLink}{https://youtu.be/s1KiIrV1YY4}
+\newcommand{\methodName}{SMiRL\xspace}
+
+\newcommand{\transitionTuple}{\tau}
+% \newcommand{\nextState}{\sstate}
+% \newcommand{\nextObservation}{\nextState}
+\newcommand{\discountFactor}{\gamma}
+\newcommand{\expNoise}{\lambda}
+\newcommand{\experianceTuple}{\tau}
+\newcommand{\experianceMemory}{D}
+\newcommand{\learningRate}{\alpha}
+\newcommand{\targetValue}{y}
+\newcommand{\targetDifference}{\delta}
+
+
